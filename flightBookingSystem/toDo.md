@@ -1,7 +1,7 @@
 # toDo List for Simple Flight Booking Model Implementation
 
 1. Create classes
-    1. Flight.java
+    1. ~~Flight.java~~
         - test class
     2. Ticket.java
     3. Passenger.java
