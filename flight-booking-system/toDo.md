@@ -11,3 +11,8 @@
     6. Manager.java
 
 2. Debug 
+
+---
+
+Questions
+    - How thorough should tests be?

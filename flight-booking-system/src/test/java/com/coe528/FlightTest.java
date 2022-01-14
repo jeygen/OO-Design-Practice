@@ -20,6 +20,8 @@ public class FlightTest {
 
     @Test(expected = Exception.class) // Start here
     public void testInvalidConstructor() {
+        Flight instance = new Flight(10, "Toronto", "Toronto", "5:00 pm", 10, 45.4);
+        /*
         try {
             Flight instance = new Flight(10, "Toronto", "Toronto", "5:00 pm", 10, 45.4);
             fail("Exception was expected");
@@ -27,6 +29,7 @@ public class FlightTest {
         catch (Exception e) {
             //assertTrue(true);
         }
+            */
     }
 
             
