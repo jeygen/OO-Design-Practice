@@ -1,4 +1,4 @@
-package main.java.com.coe528;
+package src.main.java.com.coe528e528;
 
 public class Flight {
    private int flightNumber;
@@ -95,7 +95,7 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Flight: " + this.getFlightNumber() + ", " + this.getOrigin() + " to " + this.getDestination() + ", " + this.getDepartureTime() + ". Original Price: " + this.getOriginalPrice();
+        return "Flight: " + this.getFlightNumber() + ", " + this.getOrigin() + " to " + this.getDestination() + ", " + this.getDepartureTime() + ". Original Price: $" + this.getOriginalPrice();
     }
 
 }

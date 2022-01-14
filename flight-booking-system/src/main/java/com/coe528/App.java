@@ -1,4 +1,4 @@
-package src.main.java.com.coe528;
+package com.coe528;
 
 /**
  * Hello world!

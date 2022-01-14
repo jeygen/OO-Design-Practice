@@ -1,4 +1,4 @@
-package src.test.java.com.coe528;
+package com.coe528;
 
 import static org.junit.Assert.assertTrue;
 
