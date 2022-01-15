@@ -18,18 +18,9 @@ public class FlightTest {
         // Could also check instance variables if correct
     }
 
-    @Test(expected = Exception.class) // Start here
+    @Test (expected = IllegalArgumentException.class) // Test passes if exception thrown
     public void testInvalidConstructor() {
         Flight instance = new Flight(10, "Toronto", "Toronto", "5:00 pm", 10, 45.4);
-        /*
-        try {
-            Flight instance = new Flight(10, "Toronto", "Toronto", "5:00 pm", 10, 45.4);
-            fail("Exception was expected");
-        }
-        catch (Exception e) {
-            //assertTrue(true);
-        }
-            */
     }
 
             
