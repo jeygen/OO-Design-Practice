@@ -95,7 +95,8 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Flight: " + this.getFlightNumber() + ", " + this.getOrigin() + " to " + this.getDestination() + ", " + this.getDepartureTime() + ". Original Price: $" + this.getOriginalPrice();
+        return "Flight: " + this.getFlightNumber() + ", " + this.getOrigin() + " to " + this.getDestination() 
+        + ", " + this.getDepartureTime() + ". Original Price: $" + this.getOriginalPrice();
     }
 
 }

@@ -15,7 +15,7 @@ public class FlightTest {
             fail("Invalid Constructor");
         */
         assertTrue(instance instanceof Flight);
-        // Could also check instance variables if correct
+        // Could also check instance variables if correct ?
     }
 
     @Test (expected = IllegalArgumentException.class) // Test passes if exception thrown
