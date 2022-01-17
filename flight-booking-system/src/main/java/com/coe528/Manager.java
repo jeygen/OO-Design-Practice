@@ -1,6 +1,8 @@
 package com.coe528;
 import java.util.*;
 
+import javax.lang.model.util.ElementScanner14;
+
 public class Manager {
     Flight [] fList;
     Ticket [] tickList;
@@ -42,15 +44,20 @@ public class Manager {
                 throw new IllegalArgumentException("Flight capacity can not be negative.");
             double origPrice = scan.nextDouble();
             fList[i] = new Flight(fnum, o, dest, departT, cap, origPrice);
+            System.out.println();
         }        
     }
 
-    public void displayAvailableFlights(String origin, String destination) { // Displays unbooked flights from origin to destination
+    public void displayAvailableFlights(String origin, String destination) { // Displays unbooked flights of specified origin, dest
         for(int i = 0; i < fList.length; i++) {
-            if (fList[i].getCapacity() > 0)
+            if (fList[i].getCapacity() > 0 && fList[i].getOrigin().toUpperCase().equals(origin.toUpperCase()) && fList[i].getDestination().toUpperCase().equals(destination.toUpperCase())) {
+                System.out.println("Printing available flights with specified origin and destination: ");
                 System.out.println(fList[i].toString());
-            else    
+            }
+            else if (fList[i].getOrigin().toUpperCase().equals(origin.toUpperCase()) && fList[i].getDestination().equals(destination.toUpperCase()))  
                 System.out.println(fList[i].getFlightNumber() + " is booked.");
+            else 
+                System.out.println("No flights with that origin and destination exist");  
         }
     }
 
@@ -76,14 +83,18 @@ public class Manager {
         double price;
         int totalCap = 0;
 
+        // Gets capacity of all flights and creates Ticket[] of total capaicty size
         for(int i = 0; i < fList.length; i++) 
             totalCap += fList[i].getCapacity(); 
         tickList = new Ticket[totalCap];
+        
 
         for(int i = 0; i < fList.length; i++) {
             if (fList[i].getFlightNumber() == flightNumber) {
                 fList[i].setCapacity(fList[i].getCapacity() - 1);
                 price = p.applyDiscount(fList[i].getOriginalPrice());
+             
+                 
                 /*
                 if (p instanceof Member) // May have to typecast p?
                     price = p.applyDiscount(fList[i].getOriginalPrice());
@@ -100,25 +111,25 @@ public class Manager {
 
     public static void main(String [] args) {
         Manager manager = new Manager();
-        manager.createFlights();
-        manager.displayAvailableFlights("Toronto", "Edmonton");
-        System.out.println();
+        manager.createFlights(); // Creating and populating flights through user input
+
+        manager.displayAvailableFlights("YYZ", "YEG"); // Seeing all availabe flights with input origin and destination
+        System.out.println(); 
         
-        Member mem1 = new Member("Josh", 20, 3);
+        Member mem1 = new Member("Josh", 20, 3); // Creating Member and non-Member Passenger objects
         Member mem2 = new Member("Moe", 30, 10);
         NonMember nonMem1 = new NonMember("Xi", 42);
         NonMember nonMem2 = new NonMember("Karen", 82);
         NonMember nonMem3 = new NonMember("Karen", 10);
 
-        manager.bookSeat(200, mem1);
-        System.out.println(manager.getFlight(200).getOriginalPrice());
+        manager.bookSeat(737, mem1); // Booking a Member Passenger. 
+        //System.out.println(manager.getFlight(737).getOriginalPrice());
+
 
         System.out.println("Printing out all issued tickets:");
         for(int i = 0; i < manager.tickList.length; i++) {
-            if (manager.tickList[i] == null)
-                continue;
-            else
-                System.out.println(manager.tickList[i]);
+            if (manager.tickList[i] != null)
+                System.out.println("Ticket: " +  Ticket.getNumber() + " ---> " + manager.tickList[i]);
         }
     }
 }

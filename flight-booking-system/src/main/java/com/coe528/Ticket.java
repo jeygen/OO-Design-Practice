@@ -49,6 +49,7 @@ public class Ticket {
     public String toString() {
         return "Name: " + this.getPassenger().getName() + ", Flight Number: " + this.getFlight().getFlightNumber() + ", " 
             + this.getFlight().getOrigin() + " to " + this.getFlight().getDestination() 
-            + "@" + this.getFlight().getDepartureTime() + " Original price -Start here-";
+            + "@" + this.getFlight().getDepartureTime() + ", Original price: $" + getFlight().getOriginalPrice() 
+            + ", Discounted price: $" + this.getPrice();  
     }
 }
