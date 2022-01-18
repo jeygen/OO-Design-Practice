@@ -80,10 +80,10 @@ public class Manager {
         Issues ticket.
     */
     public void bookSeat(int flightNumber, Passenger p) { 
-        double price;
+        double price = 0;
         int totalCap = 0;
 
-        // Gets capacity of all flights and creates Ticket[] of total capaicty size
+        // Gets capacity of all flights and creates Ticket[] of total capacity size
         for(int i = 0; i < fList.length; i++) 
             totalCap += fList[i].getCapacity(); 
         tickList = new Ticket[totalCap];
@@ -92,15 +92,21 @@ public class Manager {
         for(int i = 0; i < fList.length; i++) {
             if (fList[i].getFlightNumber() == flightNumber) {
                 fList[i].setCapacity(fList[i].getCapacity() - 1);
-                price = p.applyDiscount(fList[i].getOriginalPrice());
+               // price = p.applyDiscount(fList[i].getOriginalPrice());
              
-                 
-                /*
-                if (p instanceof Member) // May have to typecast p?
-                    price = p.applyDiscount(fList[i].getOriginalPrice());
-                else    
-                    p.applyDiscount()
-                    */
+                if (p instanceof Member) { // May not need have to typecast p?
+                    System.out.println("Member Status");
+                    System.out.println(price);
+
+                    price = ((Member)p).applyDiscount(fList[i].getOriginalPrice());
+                    System.out.println(price);
+                    System.out.println(fList[i].getOriginalPrice());
+
+                }
+                else {    
+                    System.out.println("Non-Member Status");
+                    price = ((NonMember)p).applyDiscount(fList[i].getOriginalPrice());
+                }                    
         
                 tickList[i] = new Ticket(p, fList[i], price);
             }
@@ -118,15 +124,17 @@ public class Manager {
         
         Member mem1 = new Member("Josh", 20, 3); // Creating Member and non-Member Passenger objects
         Member mem2 = new Member("Moe", 30, 10);
-        NonMember nonMem1 = new NonMember("Xi", 42);
-        NonMember nonMem2 = new NonMember("Karen", 82);
-        NonMember nonMem3 = new NonMember("Karen", 10);
+        NonMember nonMem1 = new NonMember("Xi", 72);
+        NonMember nonMem2 = new NonMember("Karen", 52);
+        NonMember nonMem3 = new NonMember("Kai", 10);
 
-        manager.bookSeat(737, mem1); // Booking a Member Passenger. 
+        manager.bookSeat(737, mem1); // Booking a Member Passenger on Lfight 737 
+        manager.bookSeat(737, nonMem1); // Booking a Non-Member on Flight 737
         //System.out.println(manager.getFlight(737).getOriginalPrice());
+        System.out.println(manager.tickList.length);
 
 
-        System.out.println("Printing out all issued tickets:");
+        System.out.println("Printing out all issued tickets:"); // Prints out all issued tickets
         for(int i = 0; i < manager.tickList.length; i++) {
             if (manager.tickList[i] != null)
                 System.out.println("Ticket: " +  Ticket.getNumber() + " ---> " + manager.tickList[i]);

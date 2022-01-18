@@ -10,9 +10,8 @@
     6. ~~Manager.java~~
 
 2. Debug 
-
----
-Start in manager class, line 95, something is wrong with discounted price, check whats wrong
+    - Start in manager class, line 95, something is wrong with discounted price, check whats wrong
+    - Ticket list is not being populated correctly
 
 ---
 

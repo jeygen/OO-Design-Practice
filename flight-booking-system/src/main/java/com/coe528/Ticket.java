@@ -10,7 +10,7 @@ public class Ticket {
         passenger = p;
         this.flight =  flight;
         this.price = price;
-        ++this.number;
+        ++Ticket.number;
     }
 
     public Flight getFlight() {
