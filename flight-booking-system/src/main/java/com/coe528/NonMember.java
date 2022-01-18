@@ -8,7 +8,7 @@ public class NonMember extends Passenger {
 
     public double applyDiscount(double p) {
         if (this.getAge() > 65)
-            return p - (p * 1.1);
+            return (p - (p * 1.1));
         return p;
     }
 }

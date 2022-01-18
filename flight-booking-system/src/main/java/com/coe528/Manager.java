@@ -1,11 +1,10 @@
 package com.coe528;
 import java.util.*;
 
-import javax.lang.model.util.ElementScanner14;
 
 public class Manager {
-    Flight [] fList;
-    Ticket [] tickList;
+    private static Flight [] fList;
+    private static Ticket [] tickList;
     
     public void createFlights(){ // Prompts user to populate the flight option information
         Scanner scan = new Scanner(System.in);
@@ -91,24 +90,30 @@ public class Manager {
 
         for(int i = 0; i < fList.length; i++) {
             if (fList[i].getFlightNumber() == flightNumber) {
+                int count = 0;
                 fList[i].setCapacity(fList[i].getCapacity() - 1);
                // price = p.applyDiscount(fList[i].getOriginalPrice());
              
-                if (p instanceof Member) { // May not need have to typecast p?
+                if (p instanceof Member) { // Keep getting wrong values for price 
+                    // Member m = (Member) p;
+                    //price = m.applyDiscount(fList[i].getOriginalPrice());
                     System.out.println("Member Status");
                     System.out.println(price);
-
                     price = ((Member)p).applyDiscount(fList[i].getOriginalPrice());
                     System.out.println(price);
                     System.out.println(fList[i].getOriginalPrice());
 
                 }
                 else {    
+                    // NonMember nm = (NonMember) p;
+                    // price = nm.applyDiscount(fList[i].getOriginalPrice());
                     System.out.println("Non-Member Status");
                     price = ((NonMember)p).applyDiscount(fList[i].getOriginalPrice());
-                }                    
-        
-                tickList[i] = new Ticket(p, fList[i], price);
+                }       
+                
+                
+                count++;
+                tickList[count] = new Ticket(p, fList[i], price);
             }
             else
                 System.out.println("No flight with that flight number exists.");
@@ -131,13 +136,13 @@ public class Manager {
         manager.bookSeat(737, mem1); // Booking a Member Passenger on Lfight 737 
         manager.bookSeat(737, nonMem1); // Booking a Non-Member on Flight 737
         //System.out.println(manager.getFlight(737).getOriginalPrice());
-        System.out.println(manager.tickList.length);
+        System.out.println(Manager.tickList.length);
 
 
         System.out.println("Printing out all issued tickets:"); // Prints out all issued tickets
-        for(int i = 0; i < manager.tickList.length; i++) {
-            if (manager.tickList[i] != null)
-                System.out.println("Ticket: " +  Ticket.getNumber() + " ---> " + manager.tickList[i]);
+        for(int i = 0; i < Ticket.getNumber(); i++) {
+            if (Manager.tickList[i] != null)
+                System.out.println("Ticket: " +  Ticket.getNumber() + " ---> " + Manager.tickList[i]);
         }
     }
 }

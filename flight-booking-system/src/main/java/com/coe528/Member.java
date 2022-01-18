@@ -21,9 +21,9 @@ public class Member extends Passenger {
     @Override 
     public double applyDiscount(double p) {
         if (this.getYearsOfMembership() > 5) 
-            return 0.5 * p;
+            return (0.5 * p);
         else if (this.getYearsOfMembership() > 1 && this.getYearsOfMembership() <= 5) 
-            return p - (1.1 * p);
+            return (p - (1.1 * p));
         return p;
     }
     
