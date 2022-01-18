@@ -90,8 +90,7 @@ public class Manager {
 
         for(int i = 0; i < fList.length; i++) {
             if (fList[i].getFlightNumber() == flightNumber) {
-                int count = 0;
-                fList[i].setCapacity(fList[i].getCapacity() - 1);
+                //fList[i].setCapacity(fList[i].getCapacity() - 1);
                // price = p.applyDiscount(fList[i].getOriginalPrice());
              
                 if (p instanceof Member) { // Keep getting wrong values for price 
@@ -109,11 +108,9 @@ public class Manager {
                     // price = nm.applyDiscount(fList[i].getOriginalPrice());
                     System.out.println("Non-Member Status");
                     price = ((NonMember)p).applyDiscount(fList[i].getOriginalPrice());
-                }       
-                
-                
-                count++;
-                tickList[count] = new Ticket(p, fList[i], price);
+                }                    
+        
+                tickList[i] = new Ticket(p, fList[i], price);
             }
             else
                 System.out.println("No flight with that flight number exists.");
@@ -135,12 +132,13 @@ public class Manager {
 
         manager.bookSeat(737, mem1); // Booking a Member Passenger on Lfight 737 
         manager.bookSeat(737, nonMem1); // Booking a Non-Member on Flight 737
+        manager.bookSeat(737, mem2);
         //System.out.println(manager.getFlight(737).getOriginalPrice());
         System.out.println(Manager.tickList.length);
 
 
         System.out.println("Printing out all issued tickets:"); // Prints out all issued tickets
-        for(int i = 0; i < Ticket.getNumber(); i++) {
+        for(int i = 0; i < Manager.tickList.length; i++) {
             if (Manager.tickList[i] != null)
                 System.out.println("Ticket: " +  Ticket.getNumber() + " ---> " + Manager.tickList[i]);
         }
