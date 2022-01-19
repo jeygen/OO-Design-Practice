@@ -151,7 +151,7 @@ public class Manager {
         System.out.println("Printing out all issued tickets:"); 
         for(int i = 0; i < Manager.tickList.length; i++) {
             if (Manager.tickList[i] != null)
-                System.out.println("Ticket" + " ---> " + Manager.tickList[i]);
+                System.out.println("Ticket " + Manager.tickList[i].getid() + ": ---> " + Manager.tickList[i]);
         }
         System.out.println();
 

@@ -5,12 +5,14 @@ public class Ticket {
     private Flight flight;
     private double price;
     private static int number;
+    private int id;
     
     public Ticket(Passenger p, Flight flight, double price) {
         passenger = p;
         this.flight =  flight;
         this.price = price;
         ++Ticket.number;
+        id = Ticket.number;
     }
 
     public Flight getFlight() {
@@ -19,6 +21,10 @@ public class Ticket {
     
     public static int getNumber() {
         return number;
+    }
+
+    public int getid() {
+        return id;
     }
     
     public Passenger getPassenger() {
