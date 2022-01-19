@@ -107,6 +107,37 @@ public class Manager {
     }
 
     public static void main(String [] args) {
+        /* 
+        Suggested Input - The following inputs will demonstrate all the necessary classes and methods.
+
+        Please input total amount of flights:
+        2
+        Please input Flight Number: 
+        737
+        Please input city of origin: 
+        yyz
+        Please input destination city: 
+        yeg
+        Please input departure time: 
+        2pm
+        Please input flight capacity: 
+        5
+        Please input price per ticket: 
+        100
+
+        Please input Flight Number: 
+        800
+        Please input city of origin: 
+        yyz
+        Please input destination city: 
+        yvr
+        Please input departure time: 
+        4pm
+        Please input flight capacity: 
+        3
+        Please input price per ticket: 
+        200
+        */
         
         // Creating and populating flights through user input
         Manager manager = new Manager();
@@ -153,6 +184,5 @@ public class Manager {
         // Checking all available flights again
         manager.displayAvailableFlights("YYZ", "YEG");
 
-        
     }
 }
