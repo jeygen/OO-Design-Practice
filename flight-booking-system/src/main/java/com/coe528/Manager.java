@@ -6,7 +6,8 @@ public class Manager {
     private static Flight [] fList;
     private static Ticket [] tickList;
     
-    public void createFlights(){ // Prompts user to populate the flight option information
+    // Prompts user to populate the flight option information
+    public void createFlights(){ 
         Scanner scan = new Scanner(System.in);
         
         System.out.println("Please input total amount of flights:"); // Prompt user for number of Flights and create array of Flight objects.
@@ -18,11 +19,6 @@ public class Manager {
         }
         else {
             throw new IllegalArgumentException("Number of flights must be an integer.");
-            /*
-            numOfFlights = 0;
-            System.out.println("No flights available at this time. Goodbye.");
-            System.exit(0);
-            */
         }
         
         fList = new Flight[numOfFlights];
@@ -51,14 +47,15 @@ public class Manager {
         }
         
         // Gets capacity of all flights and creates Ticket[] of total capacity size
-        int totalCap = 0;
+        int totalCap = 0; 
         for(int i = 0; i < fList.length; i++) 
             totalCap += fList[i].getCapacity(); 
         tickList = new Ticket[totalCap];
                 
     }
 
-    public void displayAvailableFlights(String origin, String destination) { // Displays unbooked flights of specified origin, dest
+    // Displays unbooked flights of specified origin, dest
+    public void displayAvailableFlights(String origin, String destination) { 
             System.out.println("Printing available flights with specified origin and destination: ");
         for(int i = 0; i < fList.length; i++) {
             if (fList[i].getCapacity() > 0 && fList[i].getOrigin().toUpperCase().equals(origin.toUpperCase()) && fList[i].getDestination().toUpperCase().equals(destination.toUpperCase())) {
@@ -70,8 +67,9 @@ public class Manager {
                 System.out.println("Flight " + fList[i].getFlightNumber() + " does not match the desired cities.");  
         }
     }
-
-    public Flight getFlight(int flightNumber) { // Returns flight object for specified flight number
+    
+    // Returns flight object for specified flight number
+    public Flight getFlight(int flightNumber) { 
         
         for(int i = 0; i < fList.length; i++) {
             if (fList[i].getFlightNumber() == flightNumber)
@@ -80,7 +78,6 @@ public class Manager {
                 throw new IllegalArgumentException("No flight with that flight number available.");
         }
         return fList[0]; // dummy return
-        //return fList[flightNumber];
     }
 
     /*
@@ -106,8 +103,6 @@ public class Manager {
                 }                    
                 tickList[Ticket.getNumber()] = new Ticket(p, fList[i], price);
             }
-            //else
-               // System.out.println("No flight with that flight number exists.");
         } 
     }
 

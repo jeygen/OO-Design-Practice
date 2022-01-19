@@ -10,11 +10,8 @@
     6. ~~Manager.java~~
 
 2. Debug 
-    - Start in manager class, line 95, something is wrong with discounted price, check whats wrong
-    - Ticket list is not being populated correctly
+    - ~Start in manager class, line 95, something is wrong with discounted price, check whats wrong~
+    - ~Ticket list is not being populated correctly~
+    - Make better use of the JUnit Testing
 
 ---
-
-Questions
-    - How thorough should tests be?
-    - How often is it apporpriate to throw runtime errors?
