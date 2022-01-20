@@ -10,9 +10,10 @@ public class Flight {
    private double originalPrice;
 
    public Flight(int fNum, String o, String dest, String departT, int cap, double origPrice) {
-        if (o.equals(dest)) {
+        if (o.equals(dest)) 
             throw new IllegalArgumentException("Origin can not match destination.");
-        }
+        if (fNum < 0 || cap < 0 || origPrice < 0)
+            throw new IllegalArgumentException("No negative values");
 
         this.flightNumber = fNum;
         this.origin = o;
@@ -22,6 +23,8 @@ public class Flight {
         this.numberOfSeatsLeft = this.capacity; // This may have to change
         this.originalPrice = origPrice;
     }
+
+    public Flight() {}; // Added default constructer for testing purposes
 
     public int getCapacity() {
         return capacity;
