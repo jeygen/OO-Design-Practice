@@ -62,7 +62,7 @@ public class Manager {
                 System.out.println(fList[i].toString());
             }
             else if (fList[i].getOrigin().toUpperCase().equals(origin.toUpperCase()) && fList[i].getDestination().toUpperCase().equals(destination.toUpperCase()))  
-                System.out.println(fList[i].getFlightNumber() + " is booked.");
+                System.out.println(fList[i].getFlightNumber() + " is fully booked.");
             else 
                 System.out.println("Flight " + fList[i].getFlightNumber() + " does not match the desired cities.");  
         }
@@ -111,9 +111,10 @@ public class Manager {
         Suggested Input - The following inputs will demonstrate all the necessary classes and methods.
 
         Please input total amount of flights:
-        2
+        3
+
         Please input Flight Number: 
-        737
+        97
         Please input city of origin: 
         yyz
         Please input destination city: 
@@ -126,17 +127,31 @@ public class Manager {
         100
 
         Please input Flight Number: 
-        800
+        98
         Please input city of origin: 
-        yyz
+        yow
         Please input destination city: 
         yvr
+        Please input departure time: 
+        3pm
+        Please input flight capacity: 
+        3
+        Please input price per ticket: 
+        200
+
+        Please input Flight Number: 
+        99
+        Please input city of origin: 
+        yyZ
+        Please input destination city: 
+        yEg
         Please input departure time: 
         4pm
         Please input flight capacity: 
         3
         Please input price per ticket: 
-        200
+        300
+        
         */
         
         // Creating and populating flights through user input
@@ -159,13 +174,15 @@ public class Manager {
         NonMember nonMem1 = new NonMember("Xi", 72);
         NonMember nonMem2 = new NonMember("Karen", 52);
         NonMember nonMem3 = new NonMember("Kai", 10);
+        NonMember nonMem4 = new NonMember("Debbie", 40);
 
-        // Booking Passengers on Flight 737 to max capacity
-        manager.bookSeat(737, mem1);  
-        manager.bookSeat(737, mem2);
-        manager.bookSeat(737, nonMem1); 
-        manager.bookSeat(737, nonMem2);
-        manager.bookSeat(737, nonMem3);
+        // Booking Passengers on Flight 96 to max capacity and partially booking Flight 99 
+        manager.bookSeat(97, mem1);  
+        manager.bookSeat(97, mem2);
+        manager.bookSeat(97, nonMem1); 
+        manager.bookSeat(97, nonMem2);
+        manager.bookSeat(97, nonMem3);
+        manager.bookSeat(99, nonMem4);
         System.out.println(); 
         
         // Print current capacity for each flight booked
