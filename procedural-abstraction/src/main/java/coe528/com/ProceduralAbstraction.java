@@ -1,5 +1,7 @@
 package coe528.com;
 
+import java.util.ArrayList;
+
 public class ProceduralAbstraction {
 
     //Requires: None
@@ -8,14 +10,23 @@ public class ProceduralAbstraction {
     //         (i.e. 1*2*3*...*n) is greater than or equal to x, for positive
     //         integer x. Otherwise returns 1.
     public static int reverseFactorial(int x) {
-        int fact = 1;
+        int fact = 0;
+        int count = 1;
+        int num = 0;
+        ArrayList<Integer> list = new ArrayList<Integer>();
         while (fact < x) {
-            //while (fact >= 1) {
-                fact *= (fact + 1);
-                fact++;
-            //}
+            if (num <= 0)
+                list.add(count);
+                num++;
+            count = num * (num + 1);
+            list.add(count); 
+            for (int element : list) 
+                fact += element;
+            //if (fact > x)
+            //    return num;
+            num++;
         }
-        return fact;
+        return num;
     }
 
     //Requires: None
@@ -28,7 +39,10 @@ public class ProceduralAbstraction {
     }
     
     public static void main(String[] args) {
-        System.out.println(reverseFactorial(4));
+        System.out.println(reverseFactorial(24));
+        System.out.println(reverseFactorial(119));
+        System.out.println(reverseFactorial(1));
+        System.out.println(reverseFactorial(1722));
         System.out.println("hello");
     }
 }
