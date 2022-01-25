@@ -15,9 +15,7 @@ public class ProceduralAbstraction {
         int num = 0;
         ArrayList<Integer> list = new ArrayList<Integer>();
         while (fact < x) {
-            if (num <= 0)
-                list.add(count);
-                num++;
+            
             count = num * (num + 1);
             list.add(count); 
             for (int element : list) 
