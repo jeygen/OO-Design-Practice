@@ -102,6 +102,7 @@ public class ProceduralAbstraction {
         System.out.println(reverseFactorial(24));
         System.out.println(reverseFactorial(119));
         System.out.println(reverseFactorial(1));
+        System.out.println(reverseFactorial(0));
         System.out.println(reverseFactorial(1722));
         System.out.println("");
 
