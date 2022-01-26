@@ -3,6 +3,7 @@ package coe528.com;
 import java.util.ArrayList;
 
 public class ProceduralAbstraction {
+    private final static int MAX_SIZE = 10;
 
     //Requires: None
     //Modifies: None
@@ -10,27 +11,17 @@ public class ProceduralAbstraction {
     //         (i.e. 1*2*3*...*n) is greater than or equal to x, for positive
     //         integer x. Otherwise returns 1.
     public static int reverseFactorial(int x) {
-        int fact = 1;
-        int count = 0;
-        int num = 0;
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        while (fact < x) {
-            
-            count++;
-            list.add(count);
-            for (int element : list) {
-                fact *= element;
-                System.out.println(element + "inside");
-            }
+        int num = 1;
+        int i = 0;
 
-            //for (int i = 0; i < list.size(); i++) {
-              //  fact = fact 
-                
-            //if (fact > x)
-            //    return num;
-            //num++;
+        for (i = 1; i <= MAX_SIZE; i++) {
+            num *= i;
+            //System.out.println("Fact: " + num);
+            if (num >= x)
+                break;
         }
-        return count;
+
+        return i;
     }
 
     //Requires: None
@@ -39,6 +30,7 @@ public class ProceduralAbstraction {
     //         returns true. Otherwise returns false.
     public static boolean isMatrixNice(int[][] arr) {
         //write the code here
+        //if (int i = 0; i < 
         return true;
     }
     
@@ -46,7 +38,7 @@ public class ProceduralAbstraction {
         System.out.println(reverseFactorial(24));
         System.out.println(reverseFactorial(119));
         System.out.println(reverseFactorial(1));
-        //System.out.println(reverseFactorial(1722));
+        System.out.println(reverseFactorial(1722));
         System.out.println("hello");
     }
 }
