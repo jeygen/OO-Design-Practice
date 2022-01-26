@@ -11,20 +11,23 @@ public class ProceduralAbstraction {
     //         integer x. Otherwise returns 1.
     public static int reverseFactorial(int x) {
         int fact = 0;
-        int count = 1;
+        int count = 0;
         int num = 0;
         ArrayList<Integer> list = new ArrayList<Integer>();
         while (fact < x) {
             
-            count = num * (num + 1);
-            list.add(count); 
-            for (int element : list) 
+            count++;
+            list.add(count);
+            for (int element : list) {
                 fact += element;
+                //System.out.println(element);
+            }
+                
             //if (fact > x)
             //    return num;
-            num++;
+            //num++;
         }
-        return num;
+        return count;
     }
 
     //Requires: None
