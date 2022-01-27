@@ -9,7 +9,7 @@ public class FlightTest {
     @Test
     public void testConstructor() {
         Flight instance2 = new Flight(1, "Toronto", "Edmonton", "5:00 pm", 10, 45.4);
-        assertTrue(instance2 instanceof Flight);
+        assertTrue(instance2 instanceof Flight); // Could also check instance variables
     }
 
     @Test (expected = IllegalArgumentException.class) // Test passes if exception thrown
