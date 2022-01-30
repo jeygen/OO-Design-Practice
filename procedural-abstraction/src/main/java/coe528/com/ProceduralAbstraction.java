@@ -1,7 +1,5 @@
 package coe528.com;
 
-import java.util.ArrayList;
-
 public class ProceduralAbstraction {
     private final static int MAX_SIZE = 10;
 
@@ -21,6 +19,7 @@ public class ProceduralAbstraction {
                 break;
         }
 
+        System.out.println("The smallest factorial that equals or is greater than " + x + " is " + i + "!");
         return i;
     }
 
@@ -41,10 +40,10 @@ public class ProceduralAbstraction {
 
         // Checking to see if matirix is square
         if (rows == cols) {
-            System.out.println("Rows equal columns");
+            System.out.println("Matrix is square");
         }
         else { 
-            System.out.println("Rows don't equal columns");
+            System.out.println("Matrix is not square");
             return false;
         }
 
@@ -85,16 +84,21 @@ public class ProceduralAbstraction {
         temp = temp2 = 0;
         
         // Checking to see if the diagonals have the same values
-        for (int i = 0; i <= rows; i++) {
+        for (int i = 0; i <= rows; i++) 
             diagSum += arr[i][i];
-            for (int j = cols; j == 0; j--)
-                diagSum2 += arr[i][j];
-            if (diagSum != diagSum2) {
-                System.out.println("Diagonals do not equal each other");
-                return false;
-            }
+            
+        //for (int i = 0; i <= rows; i++) 
+        for (int j = cols; j >= 0; j--) {
+            diagSum2 += arr[temp][j];
+            temp++;
         }
 
+        if (diagSum != diagSum2) {
+            System.out.println("Diagonals do not equal each other");
+            return false;
+        }
+
+        System.out.println("Matrix is nice and the sum is: " + rowSum);
         return true;
     }
     
@@ -106,34 +110,39 @@ public class ProceduralAbstraction {
         System.out.println(reverseFactorial(1722));
         System.out.println("");
 
-        int [][] a = {
+        int [][] a = {  // Not nice
         { 1, 0, 0},
         { 0, 1, 0},
         };
-        int [][] b = {
+        int [][] b = {  // Nice
         { -3, 3, 3, -3},
         { 3, -3, -3, 3},
         { 3, -3, -3, 3},
         { -3, 3, 3, -3}
         };
-        int [][] c = {
+        int [][] c = { // Not nice`
         { 1, 0,},
         { 0, 1,},
         };
-        int [][] d = {
+        int [][] d = { // Not nice
         { 0, 1, 0},
         { 0, 1, 0},
         { 0, 1, 0}
         };
-        int [][] e = {
+        int [][] e = { // Not nice
         { 1, 1, 1},
         { 0, 0, 0},
         { 0, 0, 0}
         };
-        int [][] f = {
+        int [][] f = { // Nice
         { -1, -1, -1},
         { -1, -1, -1},
         { -1, -1, -1}
+        };
+        int [][] g = { // Nice
+        { 2, 7, 6},
+        { 9, 5, 1},
+        { 4, 3, 8}
         };
         
         System.out.println("Is matrix a nice? ");
@@ -154,6 +163,8 @@ public class ProceduralAbstraction {
         System.out.println("Is matrix f nice? ");
         System.out.println(isMatrixNice(f));
         System.out.println("");
+        System.out.println("Is matrix g nice? ");
+        System.out.println(isMatrixNice(g));
         
     }
 }
