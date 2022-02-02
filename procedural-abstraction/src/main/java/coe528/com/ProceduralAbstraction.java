@@ -28,7 +28,7 @@ public class ProceduralAbstraction {
     //Effects: If the matrix arr satisfies Nice property, prints the sum and
     //         returns true. Otherwise returns false.
     public static boolean isMatrixNice(int[][] arr) {
-        //write the code here, nice matrix is square, sum of ints row, columns, and diagonals all same
+        // nice matrix is square, sum of ints row, columns, and diagonals all same
         int rows = arr.length - 1;
         int cols = arr[rows].length - 1;
         int rowSum = 0;
