@@ -1,5 +1,6 @@
-package coe528;
+package com.coe528.coe528;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class QueueOfDistinctStrings {
     
@@ -68,7 +69,6 @@ public class QueueOfDistinctStrings {
                         
         if (count > 3)
             return false;
-            */
         ArrayList<String> compList = new ArrayList<String>();
         
         for (String s : this.items) {
@@ -83,8 +83,22 @@ public class QueueOfDistinctStrings {
                 System.out.println(count);
                 return false;
         }
+        */
+        ArrayList<String> copy = new ArrayList<String>();
+        //copy = this.items.clone();
+        for (String s : items) {
+            copy.add(s);
+        }
 
-        return true;
+        HashSet<String> compItems = new HashSet<String>(copy); 
+        System.out.println(compItems);
+        System.out.println(items);
+        System.out.println(copy);
+        
+        if (compItems.size() == this.items.size())
+            return true;
+
+        return false;
         }
     
     // EFFECTS: Returns a string that contains the strings in the 
@@ -104,10 +118,17 @@ public class QueueOfDistinctStrings {
         q.enqueue(o);
         q.enqueue("two");
         q.enqueue("three");
-        System.out.println(q);
-        q.dequeue();
+        q.enqueue("four");
         System.out.println(q);
         System.out.println(q.repOK());
+
+        q.dequeue();
+        System.out.println(q);
+        
+        q.enqueue("two");
+        q.enqueue("two");
+        q.enqueue("zonk");
+        System.out.println(q);
         System.out.println(q.repOK());
         
 
