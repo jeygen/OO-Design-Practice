@@ -51,39 +51,13 @@ public class QueueOfDistinctStrings {
         if (items.size() == 0) throw new Exception();
         return items.remove(0);
     }
-    
+
+    // is this sufficient?
     // EFFECTS: Returns true if the rep invariant holds for this 
     // object; otherwise returns false 
     public boolean repOK() {
     // c) Write the code for the repOK() here
-    /*
-        int count = 0;
-        String temp = new String("placeholder");
-        for (int i = 0; i < this.items.size() ; i++) {
-            temp = this.items.get(i);
-                for (int j = 0; j < this.items.size() ; j++) {
-                    if (temp.equals(this.items.get(j))) 
-                        count++;
-                }
-            }
-                        
-        if (count > 3)
-            return false;
-        ArrayList<String> compList = new ArrayList<String>();
-        
-        for (String s : this.items) {
-            if (!compList.contains(s)) {
-                compList.add(s);
-            }
-        }
-        int count = 0;
-        for (int i = 0; i < this.items.size() ; i++) {
-            if (!this.items.get(i).equals(compList.get(i)))
-                //count++;    
-                System.out.println(count);
-                return false;
-        }
-        */
+
         ArrayList<String> copy = new ArrayList<String>();
         //copy = this.items.clone();
         for (String s : items) {
@@ -91,9 +65,9 @@ public class QueueOfDistinctStrings {
         }
 
         HashSet<String> compItems = new HashSet<String>(copy); 
-        System.out.println(compItems);
-        System.out.println(items);
-        System.out.println(copy);
+        //System.out.println(compItems);
+        //System.out.println(items);
+        //System.out.println(copy);
         
         if (compItems.size() == this.items.size())
             return true;
@@ -131,10 +105,6 @@ public class QueueOfDistinctStrings {
         System.out.println(q);
         System.out.println(q.repOK());
         
-
-
-
-        System.out.println("Hello Borld");
         System.out.println(q);
     }
 }
