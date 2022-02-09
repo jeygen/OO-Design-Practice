@@ -1,4 +1,4 @@
-package com.coe528.coe528;
+package com.coe528;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -28,6 +28,7 @@ public class QueueOfDistinctStrings {
  
     //the rep
     private ArrayList<String> items;
+    //public ArrayList<String> t = new ArrayList<String>() { {add("a"); add("a");}};
 
     // constructor
     // EFFECTS: Creates a new QueueOfDistinctStrings object
@@ -41,8 +42,8 @@ public class QueueOfDistinctStrings {
     // does nothing.
     public void enqueue(String element) throws Exception {
         if(element == null) throw new Exception();
-        if(false == items.contains(element)) 
-        items.add(element);
+        if(false == items.contains(element)) //this line prevents duplicates?
+            items.add(element);
     }
     
     // MODIFIES: this
@@ -65,9 +66,9 @@ public class QueueOfDistinctStrings {
         }
 
         HashSet<String> compItems = new HashSet<String>(copy); 
-        //System.out.println(compItems);
-        //System.out.println(items);
-        //System.out.println(copy);
+        System.out.println(compItems);
+        System.out.println(items);
+        System.out.println(copy);
         
         if (compItems.size() == this.items.size())
             return true;
@@ -93,6 +94,11 @@ public class QueueOfDistinctStrings {
         q.enqueue("two");
         q.enqueue("three");
         q.enqueue("four");
+        q.enqueue("four");
+        
+        //System.out.println(t.repOK());
+
+        System.out.println(q);
         System.out.println(q);
         System.out.println(q.repOK());
 
@@ -101,6 +107,7 @@ public class QueueOfDistinctStrings {
         
         q.enqueue("two");
         q.enqueue("two");
+        q.enqueue("zonk");
         q.enqueue("zonk");
         System.out.println(q);
         System.out.println(q.repOK());
