@@ -11,24 +11,22 @@ public class QueueOfDistinctStrings {
  // The abstraction function is:
  // a) Write the abstraction function here
  // 
- //     AF(q) = An abstract queue of distinct strings where q is a QueueOfDistinctStrings object.  
- //             Where q.list.get(i) == a distinct string element, i is an integer index for the q.list.eue with a size q.list.[1..n].
- // --------- Do I need any of this additional stuff?
- //             Where q.list.get(0) == the front of the q.list.eue.
- //             Where q.list.get((q.list.size()-1)) == the end of the q.list.eue.
- //             Where q.list.dequeue() removes the an element from the front of the q.list.eue.
- //             Where q.list.enqueue() adds a new element to the end of the q.list.eue.
+ //     AF(q) = An abstract queue of non-null distinct strings where d is a QueueOfDistinctStrings object.  
+ //             Where d.items = an array list of distinct string elements with no null elements.
+ //             Where d.list.get(i) == a distinct string element, i is an integer index for the d.list with a size [1..n]
+ //             Where d.list.get(0) == the front of the d.list
+ //             Where d.list.get((d.list.size()-1)) == the end of the d.list
  //
  // The rep invariant is:
  // b) Write the rep invariant here
  //     
- //     RI(q) = True if all elements are unique.
- //             False otherwise.
- // ---------- Should this be code?
+ //     RI(q) = d.list.get(i) == null return false
+ //             d.list.get(i) != <String> return false 
+ //             if d.list.get(i) contains duplicate elements return false 
+ //             return true if all elements in d.list are unique, non-null, and String type.
  
     //the rep
     private ArrayList<String> items;
-    //public ArrayList<String> t = new ArrayList<String>() { {add("a"); add("a");}};
 
     // constructor
     // EFFECTS: Creates a new QueueOfDistinctStrings object
@@ -42,7 +40,7 @@ public class QueueOfDistinctStrings {
     // does nothing.
     public void enqueue(String element) throws Exception {
         if(element == null) throw new Exception();
-        if(false == items.contains(element)) //this line prevents duplicates?
+        if(false == items.contains(element)) 
             items.add(element);
     }
     
@@ -53,24 +51,22 @@ public class QueueOfDistinctStrings {
         return items.remove(0);
     }
 
-    // is this sufficient?
     // EFFECTS: Returns true if the rep invariant holds for this 
     // object; otherwise returns false 
     public boolean repOK() {
     // c) Write the code for the repOK() here
 
-        ArrayList<String> copy = new ArrayList<String>();
-        //copy = this.items.clone();
+        ArrayList<String> copy = new ArrayList<String>(); // Making copy of items
         for (String s : items) {
             copy.add(s);
         }
-
-        HashSet<String> compItems = new HashSet<String>(copy); 
-        System.out.println(compItems);
-        System.out.println(items);
-        System.out.println(copy);
         
-        if (compItems.size() == this.items.size())
+        if (copy.contains(null)) // Checking for null elements
+            return false;
+
+        HashSet<String> compItems = new HashSet<String>(copy); // Eliminating duplicates by turning copy into a set via Hashset()  
+        
+        if (compItems.size() == this.items.size()) // Comparing the size of items with the set version
             return true;
 
         return false;
@@ -82,11 +78,18 @@ public class QueueOfDistinctStrings {
     public String toString() {
     // d) Write the code for the toString() here
 
-        // should this be every element or just front and end?
-        return "The front elements is: " + this.items.get(0) + " and the end element is: " + this.items.get(this.items.size() - 1);
+        String a = "Printing queue of distinct strings: " + '\n'; 
+
+        String b = "";
+        for (String e : items) 
+            b += e + '\n';
+            
+        String c = "The front elements is: " + this.items.get(0) + " and the end element is: " + this.items.get(this.items.size() - 1);
+
+        return a + b + c;
     }
     
-    // I added this to test stuff // delete before submission
+    /*
     public static void main(String [] args) throws Exception {
         QueueOfDistinctStrings q = new QueueOfDistinctStrings();
         String o = new String("one");
@@ -94,24 +97,11 @@ public class QueueOfDistinctStrings {
         q.enqueue("two");
         q.enqueue("three");
         q.enqueue("four");
-        q.enqueue("four");
-        
-        //System.out.println(t.repOK());
-
-        System.out.println(q);
         System.out.println(q);
         System.out.println(q.repOK());
-
         q.dequeue();
         System.out.println(q);
-        
-        q.enqueue("two");
-        q.enqueue("two");
-        q.enqueue("zonk");
-        q.enqueue("zonk");
-        System.out.println(q);
         System.out.println(q.repOK());
-        
-        System.out.println(q);
     }
+    */
 }
