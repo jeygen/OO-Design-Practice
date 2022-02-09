@@ -25,8 +25,9 @@ public class Record {
 
     private Record(String n) throws FileNotFoundException {
         filename = n;
-        String location = System.getProperty("user.dir");
-        File file = new File("C:\\Users\\joshm\\OneDrive - Ryerson University\\Documents\\GitHub\\OO-Design-Practice\\singleton-composite\\src\\main\\java\\com\\coe528\\record.txt");
+        //String location = System.getProperty("user.dir");
+        //File file = new File("C:\\Users\\joshm\\OneDrive - Ryerson University\\Documents\\GitHub\\OO-Design-Practice\\singleton-composite\\src\\main\\java\\com\\coe528\\record.txt");
+        File file = new File("record.txt"); //this works
         //FileOutputStream fos = new FileOutputStream("C:\\Users\\joshm\\OneDrive - Ryerson University\\Documents\\GitHub\\OO-Design-Practice\\singleton-composite\\src\\main\\java\\com\\coe528\\Record.java");
         //file.createNewFile("record.txt");
     }
