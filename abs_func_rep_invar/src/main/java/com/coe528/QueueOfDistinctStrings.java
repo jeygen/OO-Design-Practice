@@ -12,18 +12,18 @@ public class QueueOfDistinctStrings {
  // a) Write the abstraction function here
  // 
  //     AF(q) = An abstract queue of non-null distinct strings where d is a QueueOfDistinctStrings object.  
- //             Where d.items = an array list of distinct string elements with no null elements.
- //             Where d.list.get(i) == a distinct string element, i is an integer index for the d.list with a size [1..n]
- //             Where d.list.get(0) == the front of the d.list
- //             Where d.list.get((d.list.size()-1)) == the end of the d.list
+ //             Where d.items = q.items, an array list of distinct string elements with no null elements.
+ //             Where d.list.get(i) == a distinct string element, i is an integer index for the q.list with a size [1..n]
+ //             Where d.list.get(0) == the front of the q.list
+ //             Where d.list.get((d.list.size()-1)) == the end of the q.list
  //
  // The rep invariant is:
  // b) Write the rep invariant here
  //     
- //     RI(q) = d.list.get(i) == null return false
- //             d.list.get(i) != <String> return false 
- //             if d.list.get(i) contains duplicate elements return false 
- //             return true if all elements in d.list are unique, non-null, and String type.
+ //     RI(q) = q.list.get(i) == null return false
+ //             q.list.get(i) != <String> return false 
+ //             if q.list.get(i) contains duplicate elements return false 
+ //             return true if all elements in q.list are unique, non-null, and String type.
  
     //the rep
     private ArrayList<String> items;
