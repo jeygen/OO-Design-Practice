@@ -20,8 +20,8 @@ public class QueueOfDistinctStrings {
  // The rep invariant is:
  // b) Write the rep invariant here
  //     
- //     RI(q) = q.list.get(i) == null return false
- //             q.list.get(i) != <String> return false 
+ //     RI(q) = if q.list.get(i) == null return false
+ //             if q.list.get(i) != <String> return false 
  //             if q.list.get(i) contains duplicate elements return false 
  //             return true if all elements in q.list are unique, non-null, and String type.
  
