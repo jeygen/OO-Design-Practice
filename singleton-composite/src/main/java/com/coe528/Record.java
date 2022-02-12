@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 /*
 int: Following are the webpages containing documentation of some java classes that can be used for 
@@ -21,15 +22,10 @@ https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html
 public class Record {
     // Name of the associated file
     private String filename;
-    private static Record instance;
+    private static Record instance = null;
 
     private Record(String n) throws FileNotFoundException {
         filename = n;
-        //String location = System.getProperty("user.dir");
-        //File file = new File("C:\\Users\\joshm\\OneDrive - Ryerson University\\Documents\\GitHub\\OO-Design-Practice\\singleton-composite\\src\\main\\java\\com\\coe528\\record.txt");
-        File file = new File("record.txt"); //this works
-        //FileOutputStream fos = new FileOutputStream("C:\\Users\\joshm\\OneDrive - Ryerson University\\Documents\\GitHub\\OO-Design-Practice\\singleton-composite\\src\\main\\java\\com\\coe528\\Record.java");
-        //file.createNewFile("record.txt");
     }
 
     // Singleton 
@@ -45,8 +41,17 @@ public class Record {
     public void read() {
         try {
             // Write the code here
-            FileReader reader = new FileReader(filename);
-            System.out.println(reader.read());
+            File file = new File(filename);
+            Scanner scan = new Scanner(file);
+            if (filename == null) { // this is a kinda silly condition
+                scan.close();
+                throw new IOException();
+            }
+            while (scan.hasNextLine()) {
+                System.out.println(scan.nextLine());
+            }
+            scan.close();
+
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
@@ -58,7 +63,7 @@ public class Record {
     public void write(String msg) {
         try {
         // Write the code here
-            FileWriter writer = new FileWriter("record.txt", true);
+            FileWriter writer = new FileWriter(filename, true);
             writer.append(msg);
             writer.flush();
             writer.close();
