@@ -1,5 +1,6 @@
 package com.coe528;
 
-public class FoodComponent {
-    
+
+public abstract class FoodComponent {
+    protected abstract void print(int level);
 }
