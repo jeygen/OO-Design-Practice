@@ -5,5 +5,14 @@ package com.coe528;
 
 public abstract class FoodComponent {
     protected int level = 0;
+    
+    //protected FoodComponent() {
+    //    level++;
+    //}
+    
     protected abstract void print(int level);
+    protected abstract String getName();
+    protected abstract double getPrice();
+    protected abstract int getLevel();
+
 }

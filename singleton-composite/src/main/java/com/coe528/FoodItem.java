@@ -5,30 +5,31 @@ package com.coe528;
 public class FoodItem extends FoodComponent {
     private String name;
     private double price;
-    private int level = 0;
+    private int level;
 
     public FoodItem(String name, double price) {
         this.name = name;
         this.price = price;
+        level = super.level;
     }
 
     @Override
     public void print(int level) {
-        if (level == getLevel())
+       // if (level == getLevel())
             System.out.println("Food Item: " + this.getName() + ", " + this.getPrice());
     }
 
-    private String getName() {
+    protected String getName() {
         return name;
     }
 
-    private double getPrice() {
+    protected double getPrice() {
         return price;
     }
 
-    protected void setLevel() {
-        this.level++;
-    }
+    //protected void setLevel() {
+//        this.level++;
+  //  }
 
     protected int getLevel() {
         return this.level;

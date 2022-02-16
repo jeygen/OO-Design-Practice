@@ -24,6 +24,7 @@ public class Driver {
         ((FoodCategory)fc3).add(fi5);
  
         fc1.print(0);
-        fi1.print(0); // del before submitting
+        //fi1.print(0); // del before submitting
+        //System.out.println(((FoodItem)fi5).getLevel());
     }
 }
