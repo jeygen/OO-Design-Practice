@@ -11,7 +11,7 @@ public class QueueOfDistinctStrings {
  // The abstraction function is:
  // a) Write the abstraction function here
  // 
- //     AF(q) = An abstract queue of non-null distinct strings where d is a QueueOfDistinctStrings object.  
+ //     AF(q) = An abstract queue of non-null distinct strings where d is a queue of distinct strings. (Mapping concrete to abstraction)
  //             Where d.items = q.items, an array list of distinct string elements with no null elements.
  //             Where d.list.get(i) == a distinct string element, i is an integer index for the q.list with a size [1..n]
  //             Where d.list.get(0) == the front of the q.list
