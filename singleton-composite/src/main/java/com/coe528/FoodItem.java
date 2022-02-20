@@ -10,29 +10,23 @@ public class FoodItem extends FoodComponent {
     public FoodItem(String name, double price) {
         this.name = name;
         this.price = price;
-        level = super.level;
     }
 
     @Override
     public void print(int level) {
        // if (level == getLevel())
+
+        
             System.out.println("Food Item: " + this.getName() + ", " + this.getPrice());
     }
 
+
     protected String getName() {
-        return name;
+        return this.name;
     }
 
     protected double getPrice() {
-        return price;
+        return this.price;
     }
 
-    //protected void setLevel() {
-//        this.level++;
-  //  }
-
-    protected int getLevel() {
-        return this.level;
-    }
-    
 }

@@ -4,15 +4,7 @@ package com.coe528;
 // It also implements default behavior for the interface common to all classes as appropriate.
 
 public abstract class FoodComponent {
-    protected int level = 0;
-    
-    //protected FoodComponent() {
-    //    level++;
-    //}
-    
     protected abstract void print(int level);
     protected abstract String getName();
     protected abstract double getPrice();
-    protected abstract int getLevel();
-
 }

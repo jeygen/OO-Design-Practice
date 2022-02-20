@@ -17,117 +17,37 @@ public class FoodCategory extends FoodComponent {
     //private int level = 0;
 
     public FoodCategory(String name) {
-        super.level = counter; 
-        counter++;
         this.name = name;
     }
 
     public void print(int level) {
-
-        //this is printing level 0 **levels arent figure out yet
-        switch (level) {
-            case 0:
-                System.out.println("Food Category (" + this.getName() + ", " + this.getPrice() + ") contains:");
-                for (FoodComponent fc : this.list) {
-                    if (fc instanceof FoodItem) {
-                        System.out.print("\t"); 
-                        ((FoodItem)fc).print(0);
-                    }
+        //System.out.println(this.getName());
+        System.out.println("FoodCategory (" + this.getName() + "," + this.getPrice() + ") contains:");
+        for (FoodComponent f : list) {
+            //System.out.println("FoodCategory (" + f.getName() + "," + f.getPrice() + ") contains:");
+            if (f instanceof FoodCategory) {
+                //System.out.println("FoodCategory (" + f.getName() + ", " + f.getPrice() + ") contains:");
+                ((FoodCategory)f).print(0);
                 }
-            case 1:
-                System.out.println("Food Category (" + this.list.get(1).getName() + ", " + this.list.get(1).getPrice() + ") contains:");
-                for (FoodComponent fc : this.list.get(1).list) {
-                    if (fc instanceof FoodItem) {
-                        System.out.print("\t"); 
-                        ((FoodItem)fc).print(0);
-                    }
-                }
-
-                
-                
-                /*
-                for (FoodComponent fc : list) {
-                    if (fc instanceof FoodCategory) {
-                        if (fc.getLevel() == 0) 
-                            System.out.println("Food Category (" + ((FoodCategory)fc).getName() + ", " + ((FoodCategory)fc).getPrice() + ") contains:");
-                    }
-                    if (fc instanceof FoodItem) 
-                        ((FoodItem)fc).print(0);
-                }
-                */
-            default:
-                System.out.println("Level doesn't exist");
+            if (f instanceof FoodItem) {
+                ((FoodItem)f).print(0);
+            }
         }
-
-        /*
-        //this is printing level 1
-        for (FoodComponent fc : list) {
-        //for (int i = 0; i < list.size(); i++) {
-            
-                if (((FoodCategory)fc).getLevel() >= level)
-                    System.out.println(fc);
-                //System.out.println(list.get(i).getName());
-                if (fc instanceof FoodCategory) {
-                    System.out.println("Food Category (" + ((FoodCategory)fc).getName() + ", " + ((FoodCategory)fc).getPrice() + ") contains:");
-
-                }
-                if (fc instanceof FoodItem) 
-                    ((FoodItem)fc).print(0);
-        }
-        */ 
     }
     
-
-    
-    public void add(FoodComponent fComp) { // Is this exposing the ref? 
-        //fComp.setLevel();
-        if (fComp instanceof FoodCategory)
-            this.list.add(((FoodCategory)fComp));
-        if (fComp instanceof FoodItem)
-            this.list.add(((FoodItem)fComp));
-        
+    public void add(FoodComponent fComp) {  
+        this.list.add(fComp);
     }
     
-    
-    public void add(FoodCategory fCat) { // Is this exposing the ref? //this may not be needed
-        //fCat.setLevel();
-        this.list.add(fCat);
-    }
-    
-
-    
-    public void add(FoodItem fItem) { // Is this exposing the ref?
-        //fItem.setLevel();
-        this.list.add(fItem);
-    }
-    
-
     public void remove(FoodComponent fComp) {
         this.list.remove(fComp);
-       // this.level--;
     }
-
-    /*
-    public void remove(FoodItem fItem) {
-        this.list.remove(fItem);
-        this.level--;
-    }
-    */
-
-    public int getLevel() {
-        return this.level;
-    }
-
-    //protected void setLevel() {
-    //    this.level++;
-    //}
 
     protected String getName() {
         return this.name;
     }
 
     protected double getPrice() {
-
         return this.price;
     }
 
