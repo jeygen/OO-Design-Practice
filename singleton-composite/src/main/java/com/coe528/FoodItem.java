@@ -15,7 +15,8 @@ public class FoodItem extends FoodComponent {
     @Override
     public void print(int level) {
        // if (level == getLevel())
-        System.out.println("Food Item: " + this.getName() + ", " + this.getPrice());
+        System.out.println("    " + "Food Item: " + this.getName() + ", " + this.getPrice());
+        
     }
 
 
@@ -25,6 +26,16 @@ public class FoodItem extends FoodComponent {
 
     protected double getPrice() {
         return this.price;
+    }
+
+    @Override
+    protected int getLevel() {
+        // TODO Auto-generated method stub
+        return this.level;
+    }
+
+    void setLevel(int l) {
+        this.level = l;
     }
 
 }

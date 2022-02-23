@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FoodCategory extends FoodComponent {
-    private static List<FoodComponent> list = new ArrayList<FoodComponent>();
+    // this will print everytin private static List<FoodComponent> list = new ArrayList<FoodComponent>();
+    private List<FoodComponent> list = new ArrayList<FoodComponent>();
     private String name;
     private double price;
     public static int counter = 0;
@@ -22,9 +23,13 @@ public class FoodCategory extends FoodComponent {
     }
 
     public void print(int level) {
-        //System.out.println(this.getName());
-        
-       
+        System.out.println("FoodCategory (" + this.getName() + ", " + this.getPrice() + ") contains:");
+        for (FoodComponent f : list) {
+            if (f.getLevel() > 0)
+                System.out.print("    ");
+            f.print(level);
+        }
+       /*
         if (this.level == level) {
             System.out.println("FoodCategory (" + this.getName() + ", " + this.getPrice() + ") contains:");
             for (FoodComponent f : list) {
@@ -40,6 +45,7 @@ public class FoodCategory extends FoodComponent {
             
             }
         }
+        */
     
        
 
@@ -50,6 +56,8 @@ public class FoodCategory extends FoodComponent {
     
     public void add(FoodComponent fComp) {  
         this.list.add(fComp);
+        if (fComp instanceof FoodItem) 
+            ((FoodItem)fComp).setLevel(this.getLevel());
     }
     
     public void remove(FoodComponent fComp) {
@@ -62,6 +70,10 @@ public class FoodCategory extends FoodComponent {
 
     protected double getPrice() {
         return this.price;
+    }
+
+    protected int getLevel() {
+        return this.level;
     }
 
     protected List<FoodComponent> getList() {

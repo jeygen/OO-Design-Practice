@@ -9,5 +9,6 @@ public abstract class FoodComponent {
     protected abstract void print(int level);
     protected abstract String getName();
     protected abstract double getPrice();
+    protected abstract int getLevel();
     
 }
