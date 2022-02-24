@@ -13,7 +13,7 @@ public class FoodItem extends FoodComponent {
     }
 
     @Override
-    public void print(int level) {
+    protected void print(int level) {
         System.out.println("    " + "Food Item: " + this.getName() + ", " + this.getPrice());
     }
 
@@ -28,7 +28,6 @@ public class FoodItem extends FoodComponent {
 
     @Override
     protected int getLevel() {
-        // TODO Auto-generated method stub
         return this.level;
     }
 

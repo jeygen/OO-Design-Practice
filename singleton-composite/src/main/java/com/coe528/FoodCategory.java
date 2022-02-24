@@ -23,7 +23,11 @@ public class FoodCategory extends FoodComponent {
     }
 
     public void print(int level) {
-        System.out.println("FoodCategory (" + this.getName() + ", " + this.getPrice() + ") contains:");
+        double p = 0;
+        for (FoodComponent f : list) {
+            p += f.getPrice();
+        }
+        System.out.println("FoodCategory (" + this.getName() + ", " + p + ") contains:");
         for (FoodComponent f : list) {
             if (f.getLevel() > 0)
                 System.out.print("    ");
@@ -56,8 +60,11 @@ public class FoodCategory extends FoodComponent {
     
     public void add(FoodComponent fComp) {  
         this.list.add(fComp);
-        if (fComp instanceof FoodItem) 
+        if (fComp instanceof FoodItem) {
             ((FoodItem)fComp).setLevel(this.getLevel());
+            this.setPrice(fComp.getPrice() + this.getPrice());
+        }
+        
     }
     
     public void remove(FoodComponent fComp) {
@@ -70,6 +77,10 @@ public class FoodCategory extends FoodComponent {
 
     protected double getPrice() {
         return this.price;
+    }
+
+    protected void setPrice(double p) {
+        this.price = p;
     }
 
     protected int getLevel() {
